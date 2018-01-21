@@ -3,18 +3,16 @@ using System.Collections.Generic;
 
 namespace _23._3
 {
-    class Matrix
+    internal class Matrix
     {
         protected List<List<byte>> mass;
         protected int size = 4;
         public Matrix(int size = 4)
         {
-
             this.mass = new List<List<byte>>();
             List<byte> row = new List<byte>();
             List<int> sum = new List<int>();
             this.size = size;
-
 
             Random rand = new Random();
 
@@ -30,13 +28,13 @@ namespace _23._3
         {
             return this.mass;
         }
+
         public void printMatrix()
         {
             Console.Write("\t");
             for (int i = 0; i < this.size; i++)
             {
                 Console.Write("[" + (i + 1) + "]\t");
-
             }
             Console.WriteLine();
             for (int i = 0; i < this.size; i++)
@@ -45,27 +43,24 @@ namespace _23._3
 
                 for (int j = 0; j < this.size; j++)
                 {
-
                     Console.Write(mass[i][j].ToString() + "\t");
-
-
                 }
                 Console.WriteLine();
             }
         }
     }
-    class Replace : Matrix
+
+    internal class Replace : Matrix
     {
         public Replace()
             : base()
         {
-
         }
+
         public int[,] SearchValue()
         {
             Console.WriteLine();
             List<int> sum = new List<int>();
-
             int min = 99 ^ 9;
             int max = -99 ^ 9;
             int ii = 0;
@@ -75,7 +70,6 @@ namespace _23._3
             for (int i = 0; i < this.size; i++)
             {
                 Console.Write("[" + (i + 1) + "]\t");
-
             }
             Console.WriteLine();
 
@@ -99,7 +93,6 @@ namespace _23._3
                     min = sum[i];
                 }
             }
-
             for (int i = 0; i < this.size; i++)
             {
                 if (max < sum[i])
@@ -108,10 +101,8 @@ namespace _23._3
                     max = sum[i];
                 }
             }
-
             Console.WriteLine("\n[" + (ii + 1) + "]" + " Min --> " + min);
             Console.WriteLine("[" + (ii2 + 1) + "]" + " Max --> " + max);
-
             return new int[,] { { ii, min }, { ii2, max } };
         }
 
@@ -127,18 +118,16 @@ namespace _23._3
             }
         }
     }
+
     internal class Program
     {
-
         private static void Main(string[] args)
         {
-
             Replace a = new Replace();
             a.printMatrix();
             int[,] m = a.SearchValue();
             a.replaceLine(m[0, 0], m[1, 0]);
             a.printMatrix();
-
 
             /* List<List<byte>> mass = new List<List<byte>>();
              List<byte> row = new List<byte>();
@@ -209,7 +198,6 @@ namespace _23._3
              Console.WriteLine("[" + (ii + 1) + "]" + " Min --> " + min);
              Console.WriteLine("[" + (ii2 + 1) + "]" + " Max --> " + max);
              Console.WriteLine();
-
 
              for (int i = 0; i < n; i++)
              {
